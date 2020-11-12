@@ -24,6 +24,7 @@ const Component = () => {
   }
 
   let camera = null
+  const [cameraType, setCameraType] = React.useState(RNCamera.Constants.Type.front)
   const recordOptions = {
       mute: false,
       maxDuration: 5,
@@ -32,7 +33,9 @@ const Component = () => {
 
   const takePicture = () => {
     if (camera) {
-      camera.takePictureAsync()
+//      camera.takePictureAsync()
+       let flag = (cameraType == RNCamera.Constants.Type.back) ? RNCamera.Constants.Type.front : RNCamera.Constants.Type.back
+       setCameraType( flag )
     }
   };
 
@@ -61,7 +64,7 @@ const Component = () => {
             }}
             captureAudio={true}
             style={{width:200, height:200, backgroundColor:"#660000"}}
-            type={RNCamera.Constants.Type.back}
+            type={cameraType}
             androidCameraPermissionOptions={{
               title: 'Permission to use camera',
               message: 'We need your permission to use your camera',
@@ -73,7 +76,7 @@ const Component = () => {
             style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
             onPress={takePicture}
           >
-            <Text style={styles.textBlue}>takePicture</Text>
+            <Text style={styles.textBlue}>back front</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
