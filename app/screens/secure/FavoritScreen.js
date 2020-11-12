@@ -23,6 +23,25 @@ const Component = () => {
     dispatch({ type : 'setLogout' })  
   }
 
+  let camera = null
+  const recordOptions = {
+      mute: false,
+      maxDuration: 5,
+      quality: RNCamera.Constants.VideoQuality['288p'],
+  }
+
+  const takePicture = () => {
+    if (camera) {
+      camera.takePictureAsync()
+    }
+  };
+
+  const takeVideo = () => {
+    if (camera) {
+        camera.recordAsync(recordOptions)
+    }
+  }
+
   return (
     <SafeAreaView style={{ flex:1, height:'100%' }}>
       <HeaderContainer 
@@ -38,10 +57,10 @@ const Component = () => {
 	  
           <RNCamera 
             ref={ref => {
-              this.camera = ref;
+              camera = ref;
             }}
-            captureAudio={false}
-            style={{flex: 1}}
+            captureAudio={true}
+            style={{width:200, height:200, backgroundColor:"#660000"}}
             type={RNCamera.Constants.Type.back}
             androidCameraPermissionOptions={{
               title: 'Permission to use camera',
@@ -50,6 +69,18 @@ const Component = () => {
               buttonNegative: 'Cancel',
             }} />
 
+          <TouchableOpacity 
+            style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
+            onPress={takePicture}
+          >
+            <Text style={styles.textBlue}>takePicture</Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
+            onPress={takeVideo}
+          >
+            <Text style={styles.textBlue}>takeVideo</Text>
+          </TouchableOpacity>
           
           <TouchableOpacity 
             style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
