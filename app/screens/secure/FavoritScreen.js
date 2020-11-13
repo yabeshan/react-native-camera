@@ -25,6 +25,7 @@ const Component = () => {
 
   let camera = null
   const [cameraType, setCameraType] = React.useState(RNCamera.Constants.Type.front)
+  const [flash, setFlash] = React.useState('off')
   const recordOptions = {
       mute: false,
       maxDuration: 5,
@@ -41,7 +42,9 @@ const Component = () => {
 
   const takeVideo = () => {
     if (camera) {
-        camera.recordAsync(recordOptions)
+//        camera.recordAsync(recordOptions)
+	let flag = (flash == 'off') ? 'on' : 'off'
+	setFlash( flag )
     }
   }
 
@@ -65,6 +68,7 @@ const Component = () => {
             captureAudio={true}
             style={{width:200, height:200, backgroundColor:"#660000"}}
             type={cameraType}
+            flashMode={flash}
             androidCameraPermissionOptions={{
               title: 'Permission to use camera',
               message: 'We need your permission to use your camera',
@@ -82,7 +86,7 @@ const Component = () => {
             style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
             onPress={takeVideo}
           >
-            <Text style={styles.textBlue}>takeVideo</Text>
+            <Text style={styles.textBlue}>flash</Text>
           </TouchableOpacity>
           
           <TouchableOpacity 
