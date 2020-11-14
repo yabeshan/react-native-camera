@@ -5,8 +5,15 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  Platform,
 } from 'react-native'
-import { RNCamera } from 'react-native-camera'
+// import { RNCamera } from 'react-native-camera'
+// import {PERMISSIONS} from 'react-native-permissions';
+
+
+// var Camera = (Platform.OS === 'android') 
+//   ? require('react-native-file-picker') 
+//   : require('react-native-document-picker');
 
 import styles from '../../styles'
 import { useStore } from '../../store'
@@ -18,34 +25,26 @@ import {
 
 const Component = () => {
   const [, dispatch] = useStore()
+  const [vers, setVers] = React.useState("start")
+
+  React.useEffect(() => {
+    if ( Platform 
+      && Platform.constants
+      && Platform.constants.reactNativeVersion
+      && Platform.constants.reactNativeVersion.minor
+    ) {
+      setVers(Platform.constants.reactNativeVersion.minor)
+    } else if (Platform.OS === "web") {
+      setVers("web")
+    } else {
+      setVers("else")
+    }
+    // console.log("__PERMISSIONS__", PERMISSIONS)
+  }, [])
+  
 
   const handleSubmit = (values, actions) => {
     dispatch({ type : 'setLogout' })  
-  }
-
-  let camera = null
-  const [cameraType, setCameraType] = React.useState(RNCamera.Constants.Type.front)
-  const [flash, setFlash] = React.useState('off')
-  const recordOptions = {
-      mute: false,
-      maxDuration: 5,
-      quality: RNCamera.Constants.VideoQuality['288p'],
-  }
-
-  const takePicture = () => {
-    if (camera) {
-//      camera.takePictureAsync()
-       let flag = (cameraType == RNCamera.Constants.Type.back) ? RNCamera.Constants.Type.front : RNCamera.Constants.Type.back
-       setCameraType( flag )
-    }
-  };
-
-  const takeVideo = () => {
-    if (camera) {
-//        camera.recordAsync(recordOptions)
-	let flag = (flash == 'off') ? 'on' : 'off'
-	setFlash( flag )
-    }
   }
 
   return (
@@ -58,36 +57,8 @@ const Component = () => {
       <ScrollView style={{ flex:1 }}>
         <View style={styles.contentContainer}>
           <Text style={{marginTop: 15, marginBottom: 15}}></Text>
-          
+          <Text>Version RN {vers}</Text>
           {/* <AllIcons /> */}
-	  
-          <RNCamera 
-            ref={ref => {
-              camera = ref;
-            }}
-            captureAudio={true}
-            style={{width:200, height:200, backgroundColor:"#660000"}}
-            type={cameraType}
-            flashMode={flash}
-            androidCameraPermissionOptions={{
-              title: 'Permission to use camera',
-              message: 'We need your permission to use your camera',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancel',
-            }} />
-
-          <TouchableOpacity 
-            style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
-            onPress={takePicture}
-          >
-            <Text style={styles.textBlue}>back front</Text>
-          </TouchableOpacity>
-          <TouchableOpacity 
-            style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
-            onPress={takeVideo}
-          >
-            <Text style={styles.textBlue}>flash</Text>
-          </TouchableOpacity>
           
           <TouchableOpacity 
             style={[styles.textButton, {paddingTop:15, paddingBottom:10, paddingLeft:30, paddingRight:30}]} 
