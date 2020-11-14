@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 // import { RNCamera } from 'react-native-camera'
 // import {PERMISSIONS} from 'react-native-permissions';
+import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
 
 
 // var Camera = (Platform.OS === 'android') 
@@ -26,6 +27,7 @@ import {
 const Component = () => {
   const [, dispatch] = useStore()
   const [vers, setVers] = React.useState("start")
+  const [perm, setPerm] = React.useState("start")
 
   React.useEffect(() => {
     if ( Platform 
@@ -40,6 +42,37 @@ const Component = () => {
       setVers("else")
     }
     // console.log("__PERMISSIONS__", PERMISSIONS)
+    if (PERMISSIONS && PERMISSIONS.ANDROID && PERMISSIONS.ANDROID.CAMERA) {
+
+check(PERMISSIONS.ANDROID.CAMERA)
+  .then((result) => {
+    switch (result) {
+      case RESULTS.UNAVAILABLE:
+        setPerm(
+          'This feature is not available (on this device / in this context)',
+        );
+        break;
+      case RESULTS.DENIED:
+        setPerm(
+          'The permission has not been requested / is denied but requestable',
+        );
+        break;
+      case RESULTS.GRANTED:
+        setPerm('The permission is granted');
+        break;
+      case RESULTS.BLOCKED:
+        setPerm('The permission is denied and not requestable anymore');
+        break;
+    }
+  })
+  .catch((error) => {
+    setPerm("error")
+  });
+
+
+    } else {
+    	setPerm("else")
+    }
   }, [])
   
 
@@ -58,6 +91,8 @@ const Component = () => {
         <View style={styles.contentContainer}>
           <Text style={{marginTop: 15, marginBottom: 15}}></Text>
           <Text>Version RN {vers}</Text>
+          <Text>Perm {perm}</Text>
+
           {/* <AllIcons /> */}
           
           <TouchableOpacity 
