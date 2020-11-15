@@ -91,45 +91,4 @@ Component.getFullStatus = (status) => {
 }
 
 export default Component
-
-// import {PERMISSIONS} from 'react-native-permissions'
-// import { RNCamera } from 'react-native-camera'
-// import { Camera } from 'expo-camera'
-
-
-// if (Platform.OS=="web") {
-// import { RNCamera } from 'react-native-camera'
-  // const RNCamera = "123"
-// } else {
-  // import { RNCamera } from 'react-native-camera'
-// }
-
-// var Camera = (Platform.OS === 'android') 
-//   ? require('react-native-file-picker') 
-//   : require('react-native-document-picker');
-
-
-// console.log("__platform__", Platform.constants.reactNativeVersion )// minor // patch
-// console.log("__window__", window.document.URL ) // localhost
-// console.log("__window__", window.document ) // undefined
-
-/*
-
-const [vers, setVers] = React.useState("start")
-
-  React.useEffect(() => {
-    if ( Platform 
-      && Platform.constants
-      && Platform.constants.reactNativeVersion
-      && Platform.constants.reactNativeVersion.minor
-    ) {
-      setVers(Platform.constants.reactNativeVersion.minor)
-    } else if (Platform.OS === "web") {
-      setVers("web")
-    } else {
-      setVers("else")
-    }
-    // console.log("__PERMISSIONS__", PERMISSIONS)
-  }, [])
   
-*/

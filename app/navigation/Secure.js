@@ -45,8 +45,8 @@ const ClientTab5Stack = createStack([
 const ClientTabs = createBottomTabNavigator()
 const ClientTabsStack = ({ navigation, route }) => (
   <ClientTabs.Navigator 
-    initialRouteName="Обранi"  
-    // initialRouteName="Дзвiнки"
+    //initialRouteName="Обранi"  
+     initialRouteName="Дзвiнки"
     // initialRouteName="Набiр"
     tabBarOptions={tabBarOptions()}
   >

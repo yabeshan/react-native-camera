@@ -22,14 +22,14 @@ Component.getCameraStatus = async () => {
     ? PERMISSIONS.IOS.CAMERA
     : PERMISSIONS.ANDROID.CAMERA
 
-  check(type)
+  const status = await check(type)
     .then((result) => {
       return result
     })
     .catch((error) => {
       return "error"
     })
-
+  return status
 }
 
 Component.getCameraComp = async ( style = {height:100, width:100, backgroundColor:'red'}, type = "front" ) => {
