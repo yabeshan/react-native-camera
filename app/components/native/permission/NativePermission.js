@@ -16,8 +16,9 @@ const Component = () => {
 }
 
 Component.getCameraStatus = async () => {
-  return "test"
-  // const platform = CheckPermission.getPlatform()
+  
+  const platform = CheckPermission.getPlatform()
+  return platform
   // const type = (platform.indexOf('ios')>0)
   //   ? PERMISSIONS.IOS.CAMERA
   //   : PERMISSIONS.ANDROID.CAMERA
