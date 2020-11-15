@@ -36,10 +36,10 @@ const Component = () => {
   }
 
   const checkCamera = async ( comp ) => {
-    const status = await comp.getCameraStatus()
-    setCameraStatus([status, Component.getFullStatus( status )])
-    const el = await comp.getCameraComp()
-    setCameraComp( el )
+    // const status = await comp.getCameraStatus()
+    // setCameraStatus([status, Component.getFullStatus( status )])
+    // const el = await comp.getCameraComp()
+    // setCameraComp( el )
   }
 
   const checkPermission = async () => {
@@ -50,7 +50,8 @@ const Component = () => {
       comp = require('./permission/NativePermission').default
     }
     setPermit( comp )
-    checkCamera( comp )
+    // checkCamera( comp )
+    setCameraStatus(["111", "222"])
   }
   
   React.useEffect(() => {
