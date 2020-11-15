@@ -45,7 +45,13 @@ const Component = () => {
     }
     
     setCameraStatus(["333", "333"])
-    setCameraStatus([status, Component.getFullStatus( status )])
+    try {
+      setCameraStatus(["333111", "333"])
+      setCameraStatus([status, Component.getFullStatus( status )])
+    } catch (err) {
+      setCameraStatus(["333222", "333"])
+    }
+    
     setCameraStatus(["444", "444"])
     const el = await comp.getCameraComp()
     setCameraStatus(["555", "555"])
