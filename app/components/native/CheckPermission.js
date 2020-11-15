@@ -36,26 +36,9 @@ const Component = () => {
   }
 
   const checkCamera = async ( comp ) => {
-    setCameraStatus([ 111, 111 ])
     const status = await comp.getCameraStatus()
     setCameraStatus([ 222, status ])
-    // console.log("___111___", comp.getCameraStatus == undefined)
-    // console.log("___222___", comp.getCameraStatus() == undefined )
-    //setCameraStatus([ comp.getCameraStatus == undefined , comp.getCameraStatus() == undefined ])
-    // try {
-    //   setCameraStatus(["222111", "222"])
-    //   const status = await comp.getCameraStatus()
-    // } catch (err) {
-    //   setCameraStatus(["222333", "222"])
-    // }
-    
-    // setCameraStatus(["333", "333"])
-    // try {
-    //   setCameraStatus(["333111", "333"])
-    //   setCameraStatus([status, Component.getFullStatus( status )])
-    // } catch (err) {
-    //   setCameraStatus(["333222", "333"])
-    // }
+    setCameraStatus([status, Component.getFullStatus( status )])
     
     // setCameraStatus(["444", "444"])
     // const el = await comp.getCameraComp()
@@ -74,7 +57,7 @@ const Component = () => {
     setPermit( comp )
     setTimeout( ()=>{
       checkCamera( comp )
-    }, 5000)
+    }, 1000)
   }
   
   React.useEffect(() => {
