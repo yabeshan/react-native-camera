@@ -3,8 +3,8 @@ import {
   View, 
   Text,
 } from 'react-native'
-import * as Permissions from 'expo-permissions'
-import { Camera } from 'expo-camera'
+//import * as Permissions from 'expo-permissions'
+//import { Camera } from 'expo-camera'
 
 import CheckPermission from '../CheckPermission'
 
