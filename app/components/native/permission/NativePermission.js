@@ -29,6 +29,7 @@ Component.getCameraStatus = async () => {
     .catch((error) => {
       return "error"
     })
+
   return status
 }
 

@@ -15,17 +15,11 @@ import {
   AllIcons,
   HeaderContainer,
   Camera,
-  Microphone,
-  Contacts,
   CheckPermission,
 } from '../../components'
 
 const Component = () => {
   const [, dispatch] = useStore()
-  
-  // React.useEffect(() => {
-  //   const platform = CheckPermission.getPlatform()
-  // }, [])
 
   const handleSubmit = (values, actions) => {
     dispatch({ type : 'setLogout' })  
@@ -40,8 +34,9 @@ const Component = () => {
       />
       <ScrollView style={{ flex:1 }}>
         <View style={styles.contentContainer}>
-          <Text style={{marginTop: 15, marginBottom: 15}}></Text>
+          {/* <Text style={{marginTop: 15, marginBottom: 15}}></Text> */}
           
+          <Camera />
           <CheckPermission />
           
 

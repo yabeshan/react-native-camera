@@ -4,7 +4,9 @@ import { View, Text, StatusBar } from 'react-native'
 
 import { StateProvider, initialState, reducer } from './store'
 import Layouts from './navigation/Layouts'
-import { checkConnect } from './api'
+
+import { CheckPermission } from './components'
+CheckPermission.init()
 
 const App = () => (
   <StateProvider initialState={initialState} reducer={reducer}>
