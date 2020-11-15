@@ -14,14 +14,14 @@ const Login = async (username, password) => {
 
   const result = await axios.post( url + "/auth/jwt/login", data, headers )
     .then( res => {
-      //console.log("__res__", res)
+      console.log("__res__", res)
       if (res.data && res.data.detail && res.data.detail.message)
         return res.data.detail.message
-
+      // console.log("__res__", res.data.detail)
       return res
     })
     .catch( err => {
-      //console.log("__err__", err, "______", err.response)
+      console.log("__err__", err, "______", err.response)
       if (err.response && err.response.data && err.response.data.detail && err.response.data.detail[0])
         return err.response.data.detail[0].msg
       if (err.response && err.response.status)
@@ -50,11 +50,11 @@ const Registration = async (username, password) => {
 
   const result = await axios.post( url + "/auth/register", data, headers )
     .then( res => {
-      // console.log("__res__", res)
+      console.log("__res__", res)
       return res
     })
     .catch( err => {
-      // console.log("__err__", err)
+      console.log("__err__", err)
       if (err.response && err.response.data && err.response.data.detail && err.response.data.detail[0])
         return err.response.data.detail[0].msg
       if (err.response && err.response.status)

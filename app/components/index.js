@@ -10,6 +10,11 @@ export { default as CallListItem } from './list/CallListItem'
 
 export { default as ModalVideoCall } from './modal/ModalVideoCall'
 
+export { default as Camera } from './native/CameraComponent'
+export { default as CheckPermission } from './native/CheckPermission'
+export { default as Contacts } from './native/ContactsComponent'
+export { default as Microphone } from './native/MicrophoneComponent'
+
 /******************************* ICONS *******************************/
 export { default as AllIcons } from './icons/AllIcons'
 export { default as IconTab } from './icons/IconTab'

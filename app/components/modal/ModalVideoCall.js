@@ -6,7 +6,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native'
-import { RNCamera } from 'react-native-camera'
+// import { RNCamera } from 'react-native-camera'
 
 import {
   IconMiniBackArrow,
@@ -24,12 +24,12 @@ const Component = ({ number, visible, close }) => {
   const [audio, setAudio] = React.useState('off')
 
   let camera = null
-  const [cameraType, setCameraType] = React.useState(RNCamera.Constants.Type.front)
+  const [cameraType, setCameraType] = React.useState('RNCamera.Constants.Type.front')
   const [flash, setFlash] = React.useState('off')
   const recordOptions = {
       mute: false,
       maxDuration: 5,
-      quality: RNCamera.Constants.VideoQuality['288p'],
+      quality: ""//RNCamera.Constants.VideoQuality['288p'],
   }
 
   const changeCamera = () => {
@@ -77,7 +77,7 @@ const Component = ({ number, visible, close }) => {
         </View>
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
           <View></View>
-          <RNCamera 
+          {/* <RNCamera 
             ref={ref => {
               camera = ref;
             }}
@@ -89,7 +89,7 @@ const Component = ({ number, visible, close }) => {
               message: 'We need your permission to use your camera',
               buttonPositive: 'Ok',
               buttonNegative: 'Cancel',
-            }} />
+            }} /> */}
 
           <View style={{ alignItems: 'center' }}>
             <TouchableOpacity

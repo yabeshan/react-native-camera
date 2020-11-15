@@ -29,12 +29,16 @@ const Component = ({callHandler}) => {
     setNumber( number.slice(0, last) )
   }
 
+  const deleteAllHandler = () => {
+    setNumber( "" )
+  }
+
   return (
     <View>
       <View style={{ flexDirection:'row' }}>
         <Text 
           style={[
-            { marginLeft:15, textAlign: 'center', height: 40, width:230 }, 
+            { marginLeft:30, textAlign: 'center', height: 40, width:230 }, 
             (number.length<=17) ? {fontSize:26, paddingTop:0}:{fontSize:20, paddingTop:6}
           ]}
           numberOfLines={1}
@@ -42,35 +46,36 @@ const Component = ({callHandler}) => {
         <TouchableOpacity
           style={[(number.length==0 ? {opacity:0}:{opacity:1})]} 
           onPress={deleteHandler}
+          onLongPress={deleteAllHandler}
           disabled={number.length==0}
         >
           <IconCallDelete style={{width:37, height:26, marginTop:7}} />
         </TouchableOpacity>
       </View>
       
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', marginLeft:24 }}>
         <KeyBoardItem label="1" clickHandler={clickHandler} />
         <KeyBoardItem label="2" clickHandler={clickHandler} />
         <KeyBoardItem label="3" clickHandler={clickHandler} />
       </View>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', marginLeft:24 }}>
         <KeyBoardItem label="4" clickHandler={clickHandler} />
         <KeyBoardItem label="5" clickHandler={clickHandler} />
         <KeyBoardItem label="6" clickHandler={clickHandler} />
       </View>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', marginLeft:24 }}>
         <KeyBoardItem label="7" clickHandler={clickHandler} />
         <KeyBoardItem label="8" clickHandler={clickHandler} />
         <KeyBoardItem label="9" clickHandler={clickHandler} />
       </View>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', marginLeft:24 }}>
         <KeyBoardItem label="*" clickHandler={clickHandler} />
         <KeyBoardItem label="0" subLabel="+" clickHandler={clickHandler} />
         <KeyBoardItem label="#" clickHandler={clickHandler} />
       </View>
       <View style={{ marginRight:25, alignItems:'center', justifyContent:'center' }}>
         <TouchableOpacity onPress={()=>callHandler(number)} >
-          <IconCallGreenCircle style={{width:61, height:61}} />
+          <IconCallGreenCircle style={{width:61, height:61, marginLeft:22, marginTop:6}} />
         </TouchableOpacity>
       </View>
       

@@ -13,7 +13,7 @@ const Component = ({label, clickHandler, subLabel}) => {
 
   const sub = (subLabel)
     ? <Text style={{position:'absolute', top:34, textAlign:'center', width:'100%', fontSize:17 }}>{subLabel}</Text>
-    : <Text></Text>
+    : <Text style={{position:'absolute', top:34, textAlign:'center', width:'100%', fontSize:17 }}></Text>
   return (
     <View style={{ padding:0, margin:10, alignItems:'center', justifyContent:'center' }}>
       <TouchableOpacity

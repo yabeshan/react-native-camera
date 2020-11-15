@@ -31,7 +31,7 @@ const Component = ({ route, navigation }) => {
     <SafeAreaView style={{ flex:1, height:'100%' }}>
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor:'#FFFFFF' }}>
         <KeyBoardPanel callHandler={startCall} />
-        <ModalVideoCall number={number} visible={visible} close={closeHandler} />
+        {/* <ModalVideoCall number={number} visible={visible} close={closeHandler} /> */}
       </View>
     </SafeAreaView>
   )
