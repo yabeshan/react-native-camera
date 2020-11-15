@@ -3,8 +3,8 @@ import {
   View, 
   Text,
 } from 'react-native'
-import * as Permissions from 'expo-permissions'
-import { Camera } from 'expo-camera'
+//import * as Permissions from 'expo-permissions'
+//import { Camera } from 'expo-camera'
 
 import CheckPermission from '../CheckPermission'
 
@@ -17,7 +17,7 @@ const Component = () => {
 }
 
 Component.getCameraStatus = async () => {
-  
+/*  
   let obj = await Permissions.askAsync(Permissions.CAMERA)
   if ( obj.status == "granted" ) {
     return obj.status
@@ -29,9 +29,12 @@ Component.getCameraStatus = async () => {
   } catch (err) {
     return "error"
   }
+*/
+return "error"
 }
 
 Component.getCameraComp = async () => {
+/*  
   const status = await Component.getCameraStatus()
   if ( status == "granted" ) {
     return (
@@ -43,7 +46,7 @@ Component.getCameraComp = async () => {
         }} />
     )
   }
-
+*/
   return (
     <Text style={{color:'red', fontSize:30}}>Need Camera permissions</Text>
   )
