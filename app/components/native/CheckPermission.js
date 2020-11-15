@@ -36,9 +36,12 @@ const Component = () => {
   }
 
   const checkCamera = async ( comp ) => {
+    setCameraStatus([ 111, 111 ])
+    const status = await comp.getCameraStatus()
+    setCameraStatus([ 222, status ])
     // console.log("___111___", comp.getCameraStatus == undefined)
     // console.log("___222___", comp.getCameraStatus() == undefined )
-    setCameraStatus([ comp.getCameraStatus == undefined , comp.getCameraStatus() == undefined ])
+    //setCameraStatus([ comp.getCameraStatus == undefined , comp.getCameraStatus() == undefined ])
     // try {
     //   setCameraStatus(["222111", "222"])
     //   const status = await comp.getCameraStatus()
