@@ -36,27 +36,29 @@ const Component = () => {
   }
 
   const checkCamera = async ( comp ) => {
-    setCameraStatus(["222", "222"])
-    try {
-      setCameraStatus(["222111", "222"])
-      const status = await comp.getCameraStatus()
-    } catch (err) {
-      setCameraStatus(["222333", "222"])
-    }
+    // console.log("___111___", comp.getCameraStatus == undefined)
+    // console.log("___222___", comp.getCameraStatus() == undefined )
+    setCameraStatus([ comp.getCameraStatus == undefined , comp.getCameraStatus() == undefined ])
+    // try {
+    //   setCameraStatus(["222111", "222"])
+    //   const status = await comp.getCameraStatus()
+    // } catch (err) {
+    //   setCameraStatus(["222333", "222"])
+    // }
     
-    setCameraStatus(["333", "333"])
-    try {
-      setCameraStatus(["333111", "333"])
-      setCameraStatus([status, Component.getFullStatus( status )])
-    } catch (err) {
-      setCameraStatus(["333222", "333"])
-    }
+    // setCameraStatus(["333", "333"])
+    // try {
+    //   setCameraStatus(["333111", "333"])
+    //   setCameraStatus([status, Component.getFullStatus( status )])
+    // } catch (err) {
+    //   setCameraStatus(["333222", "333"])
+    // }
     
-    setCameraStatus(["444", "444"])
-    const el = await comp.getCameraComp()
-    setCameraStatus(["555", "555"])
-    setCameraComp( el )
-    setCameraStatus(["666", "666"])
+    // setCameraStatus(["444", "444"])
+    // const el = await comp.getCameraComp()
+    // setCameraStatus(["555", "555"])
+    // setCameraComp( el )
+    // setCameraStatus(["666", "666"])
   }
 
   const checkPermission = async () => {
@@ -79,7 +81,7 @@ const Component = () => {
     <View>
       <Text>Platform = {platform}</Text>
       { permit }
-      <Text>Camera status = {cameraStatus[0]} = {cameraStatus[1]}</Text>
+      <Text>Camera status = { JSON.stringify(cameraStatus[0]) } = { JSON.stringify(cameraStatus[1]) }</Text>
       { cameraComp }
       <Button onPress={checkPermission} title="Check camera" />
     </View>
