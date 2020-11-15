@@ -28,7 +28,6 @@
 	<dict>
 
 		<key>NSCameraUsageDescription</key>
-		<key>NSContactsUsageDescription</key>
 		<key>NSPhotoLibraryAddUsageDescription</key>
 		<key>NSPhotoLibraryUsageDescription</key>
 		<key>NSMicrophoneUsageDescription</key>
