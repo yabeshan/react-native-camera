@@ -6,6 +6,8 @@ import {
 // import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
 // import { RNCamera } from 'react-native-camera'
 
+import CheckPermission from '../CheckPermission'
+
 const Component = () => {
 
   return (
