@@ -37,7 +37,13 @@ const Component = () => {
 
   const checkCamera = async ( comp ) => {
     setCameraStatus(["222", "222"])
-    const status = await comp.getCameraStatus()
+    try {
+      setCameraStatus(["222111", "222"])
+      const status = await comp.getCameraStatus()
+    } catch (err) {
+      setCameraStatus(["222333", "222"])
+    }
+    
     setCameraStatus(["333", "333"])
     setCameraStatus([status, Component.getFullStatus( status )])
     setCameraStatus(["444", "444"])
