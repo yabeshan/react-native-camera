@@ -3,8 +3,10 @@ import {
   View, 
   Text,
 } from 'react-native'
-//import * as Permissions from 'expo-permissions'
-//import { Camera } from 'expo-camera'
+
+/* NEED REMOVE FOR NATIVE BUILDER */
+// import * as Permissions from 'expo-permissions'
+// import { Camera } from 'expo-camera'
 
 import CheckPermission from '../CheckPermission'
 

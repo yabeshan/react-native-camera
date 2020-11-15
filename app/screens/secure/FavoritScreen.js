@@ -36,7 +36,7 @@ const Component = () => {
         <View style={styles.contentContainer}>
           {/* <Text style={{marginTop: 15, marginBottom: 15}}></Text> */}
           
-          <Camera />
+          <Camera style={{height:200, width:200, backgroundColor:'red'}} type="front" />
           <CheckPermission />
           
 
