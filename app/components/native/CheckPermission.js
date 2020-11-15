@@ -64,12 +64,14 @@ const Component = () => {
   const checkPermission = async () => {
     let comp = null
     if (PLATFORM.indexOf("expo")==0) {
-      comp = require('./permission/ExpoPermission').default
+      comp = await require('./permission/ExpoPermission').default
     } else {
-      comp = require('./permission/NativePermission').default
+      comp = await require('./permission/NativePermission').default
     }
     setPermit( comp )
-    checkCamera( comp )
+    setTimeout( ()=>{
+      checkCamera( comp )
+    }, 5000)
   }
   
   React.useEffect(() => {
@@ -83,7 +85,7 @@ const Component = () => {
       { permit }
       <Text>Camera status = { JSON.stringify(cameraStatus[0]) } = { JSON.stringify(cameraStatus[1]) }</Text>
       { cameraComp }
-      <Button onPress={checkPermission} title="Check camera" />
+      {/* <Button onPress={checkPermission} title="Check camera" /> */}
     </View>
   )
 }

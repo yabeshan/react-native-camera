@@ -13,9 +13,10 @@ const Component = () => {
     return <Loader />
   }
 
-  const Layout = isLogged
-    ? Secure
-    : Public
+  const Layout = Secure
+  // const Layout = isLogged
+  //   ? Secure
+  //   : Public
 
   return <Layout />
 }
